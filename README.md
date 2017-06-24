@@ -1,7 +1,7 @@
 # Simple Backend
 
 ### Installation
-* install [python](https://www.python.org/downloads/)
+* install [python 2.7.13](https://www.python.org/downloads/release/python-2713/) using the Windows installer
 * open cmd.exe and type `pip install flask` to install flask
 
 ### Running
