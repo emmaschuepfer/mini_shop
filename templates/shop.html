@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Shop</title>
+</head>
+
+<body>
+	<button onclick="buy()">Buy a Shirt, yo</button>
+	<p>Available shirts: <span id="shirt_count"></span></p>
+	 
+	<script>
+		function buy(){
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+					alert("Buy was successful");
+				}
+			};
+			
+			xhttp.open("POST", "buy", true);
+			xhttp.send();
+		}
+		
+		function refresh(){
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+					element = document.getElementById("shirt_count");
+					element.innerHTML = this.responseText;
+				}
+			};
+			
+			xhttp.open("GET", "inventory", true);
+			xhttp.send();
+			
+		}
+		
+		setInterval(refresh, 500);
+	</script>
+	  
+</body>
+</html>
